@@ -1,4 +1,4 @@
-namespace Assessment_Iron_Software
+namespace AssessmentIronSoftware
 {
     public static class Phone
     {

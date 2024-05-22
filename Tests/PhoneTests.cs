@@ -1,7 +1,7 @@
 namespace Tests;
 
 using Xunit;
-using Assessment_Iron_Software;
+using AssessmentIronSoftware;
 
 public class PhoneTests
 {
