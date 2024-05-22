@@ -1,11 +1,15 @@
-namespace Tests;
+namespace OldPhoneTests;
 
-using Xunit;
 using AssessmentIronSoftware;
 
-public class PhoneTests
+public class Phone_Tests
 {
-    [Fact]
+    [SetUp]
+    public void Setup()
+    {
+    }
+
+    [Test]
     public void Should_Return_Correct_Result_On_Exanple_Unit_Tests()
     {
         Assert.Equal(actual: Phone.OldPhonePad("33#"), expected: "E");
@@ -14,7 +18,7 @@ public class PhoneTests
         Assert.Equal(actual: Phone.OldPhonePad("8 88777444666*664#"), expected: "TURING");
     }
 
-    [Fact]
+    [Test]
     public void Should_Return_1st_Letter_On_Single_Button_press()
     {
         Assert.Equal(actual: Phone.OldPhonePad("0#"), expected: " ");
@@ -30,7 +34,7 @@ public class PhoneTests
     }
 
     
-    [Fact]
+    [Test]
     public void Should_Return_2nd_Letter_On_Twice_Button_press()
     {
         Assert.Equal(actual: Phone.OldPhonePad("00#"), expected: " ");
@@ -45,7 +49,7 @@ public class PhoneTests
         Assert.Equal(actual: Phone.OldPhonePad("99#"), expected: "X");
     }
 
-    [Fact]
+    [Test]
     public void Should_Return_3rd_Letter_On_Trice_Button_press()
     {
         Assert.Equal(actual: Phone.OldPhonePad("000#"), expected: " ");
@@ -60,14 +64,14 @@ public class PhoneTests
         Assert.Equal(actual: Phone.OldPhonePad("999#"), expected: "Y");
     }
 
-    [Fact]
+    [Test]
     public void Should_Return_4th_Letter_On_4_Times_Button_press()
     {
         Assert.Equal(actual: Phone.OldPhonePad("7777#"), expected: "S");
         Assert.Equal(actual: Phone.OldPhonePad("9999#"), expected: "Z");
     }
 
-    [Fact]
+    [Test]
     public void Should_Return_Circulated_Letter_On_5_times_Button_press()
     {
         Assert.Equal(actual: Phone.OldPhonePad("00000#"), expected: " ");
@@ -82,7 +86,7 @@ public class PhoneTests
         Assert.Equal(actual: Phone.OldPhonePad("99999#"), expected: "W");
     }
 
-    [Fact]
+    [Test]
     public void Should_Return_Proper_Result_On_Backspace_Press()
     {
         Assert.Equal(actual: Phone.OldPhonePad("22 2225#"), expected: "BCJ");
@@ -96,7 +100,7 @@ public class PhoneTests
         Assert.Equal(actual: Phone.OldPhonePad("***#"), expected: "");
     }
 
-    [Fact]
+    [Test]
     public void Should_Return_Empty_Result_On_No_Button_Press()
     {
         Assert.Equal(actual: Phone.OldPhonePad("#"), expected: "");
