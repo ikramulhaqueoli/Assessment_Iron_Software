@@ -14,6 +14,9 @@
                 Phone.OldPhonePad("4433555 555666#"),
                 Phone.OldPhonePad("8 88777444666*664#"),
                 Phone.OldPhonePad("22222#"),
+                Phone.OldPhonePad("22***2225#"),
+                Phone.OldPhonePad("***2225#"),
+                Phone.OldPhonePad("**#"),
                 Phone.OldPhonePad("#")
             };
             

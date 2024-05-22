@@ -85,10 +85,15 @@ public class PhoneTests
     [Fact]
     public void Should_Return_Proper_Result_On_Backspace_Press()
     {
+        Assert.Equal(actual: Phone.OldPhonePad("22 2225#"), expected: "BCJ");
         Assert.Equal(actual: Phone.OldPhonePad("22 2225*#"), expected: "BC");
         Assert.Equal(actual: Phone.OldPhonePad("22 2225**#"), expected: "B");
+        Assert.Equal(actual: Phone.OldPhonePad("22***2225#"), expected: "CJ");
+        Assert.Equal(actual: Phone.OldPhonePad("***2225#"), expected: "CJ");
         Assert.Equal(actual: Phone.OldPhonePad("22 2225***#"), expected: "");
         Assert.Equal(actual: Phone.OldPhonePad("22 2225****#"), expected: "");
+        Assert.Equal(actual: Phone.OldPhonePad("22*222*5*#"), expected: "");
+        Assert.Equal(actual: Phone.OldPhonePad("***#"), expected: "");
     }
 
     [Fact]
