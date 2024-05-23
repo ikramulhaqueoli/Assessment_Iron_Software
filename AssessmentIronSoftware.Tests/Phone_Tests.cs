@@ -1,7 +1,9 @@
-namespace OldPhoneTests;
+namespace AssessmentIronSoftware.Tests;
 
+using NUnit.Framework;
 using AssessmentIronSoftware;
 
+[TestFixture]
 public class Phone_Tests
 {
     [SetUp]
