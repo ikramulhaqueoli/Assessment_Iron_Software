@@ -1,7 +1,7 @@
 ## Overview
 This solution repository includes,
-- Solution class `Phone.cs` which includes the implementation of method `OldPhonePad(string)`.
-- The `Program.cs` file to test the `Phone.OldPhonePad(string)` method using the Console.
+- Solution class `Phone.cs` containing the implementation of method `OldPhonePad(string)`.
+- The `Program.cs` file to debug the `Phone.OldPhonePad(string)` method using Console.
 - The `Tests` project for unit tests.
     - The `Tests/PhoneTests.cs` file contains unit tests of a bunch of happy-unhappy cases.
 - The `SolutionDocumentation.md` file for the mark-down documentation of the implementation.
@@ -10,18 +10,18 @@ This solution repository includes,
 ```cs
 Phone.OldPhonePad(input)
 ```
-This static method takes string as input. Calculates the output and returns as alpha-string.
+This static method takes string as input. Calculates and returns the output as uppercase-alpha-string. i.e, ABC.
 
 ## Solution
-1. First keep the key to letters mapping in a Dictionary.
+1. At first keep the digit to letters mapping in a Dictionary.
     ***oldPhoneButtonMap***: *Dictionary<char, string>*
     `1 -> &'( ` `2 -> abc` `3 -> def `
     `4 -> ghi ` `5 -> jkl` `6 -> mno `
     `7 -> pqrs` `8 -> tuv` `9 -> wxyz`
     `- - - - -` `0 -> ' '` `- - - - -`
 
-2. Taking a variable ***result*** (with empty string). 
-Will parse the input string and concat or delete *letter*s to/from ***result***. 
+2. Taking a variable ***result***:*string* (with empty string). 
+Will parse the input string and concat or delete *letter*s with/from ***result***. 
 The final value of ***result*** is the expected output.
 
 3. Travarse each digit in the `input` string once. 
@@ -34,13 +34,13 @@ The final value of ***result*** is the expected output.
     ```
     i.e, for 22234\*#, when coming to the 222<u>**3**</u>4\*# index, the previous digit is 2 and repeat Streak is 3. So, from `abc`, 3rd letter (index 2) will be chosen.
 
-    When the previous character is <b>*</b> (backspace). Remove characters from the end of ***result***:*string* by repeated count of <b>*</b>.
+    When the previous character is <b>\*</b> (backspace). Remove characters from the end of ***result***:*string* by repeated count of <b>\*</b>.
     ```cs
     var removeCount = Math.Min(result.Length, repeatCharStreak);
     result = result.Substring(0, result.Length - removeCount);
     ```
     i.e, for 5223\*\*5#, when coming to the 5223\*\*<u><b>5</b></u># index, the previous character is * and repeat Streak is 2. From ***result***:*string* = *JBD*, remove last 2 letters (*BD*). So, ***result***:*string* = *J*
-5. Now, reset the ***repeatCharStreak***:*int* to 1 for the current character of the ***foreach*** travarsal.
+5. Now, reset the ***repeatCharStreak***:*int* to 1 for the current character in the ***foreach*** travarsal.
 6. When a space `(' ')` is found, it will automatically handle the previous character streak and continue to the next character travarsal.
 7. When a `#` is found, it will automatically handle the previous character streak and break the loop considering `#` as the last character in the input.
 i.e, for 223#56, when coming to 223<u>**#**</U>56 index, the loop will break. So, ***result***:string = *BD*.
