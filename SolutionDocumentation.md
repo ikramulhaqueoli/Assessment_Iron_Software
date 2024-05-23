@@ -14,7 +14,7 @@ This static method takes string as input. Calculates and returns the output as u
 
 ## Solution
 1. At first keep the digit to letters mapping in a Dictionary.
-    ***oldPhoneButtonMap***: *Dictionary<char, string>*
+    ***oldPhoneButtonMap***: *Dictionary<char, string>*  <br>
     `1 -> &'( ` `2 -> abc` `3 -> def ` <br>
     `4 -> ghi ` `5 -> jkl` `6 -> mno ` <br>
     `7 -> pqrs` `8 -> tuv` `9 -> wxyz` <br>
