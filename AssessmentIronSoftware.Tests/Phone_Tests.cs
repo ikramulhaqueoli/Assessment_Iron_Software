@@ -107,4 +107,10 @@ public class Phone_Tests
     {
         Assert.Equal(actual: Phone.OldPhonePad("#"), expected: "");
     }
+
+    [Test]
+    public void Should_Skip_Handling_Characters_After_Hash_Symbol_In_The_Input()
+    {
+        Assert.Equal(actual: Phone.OldPhonePad("22#33445"), expected: "B");
+    }
 }

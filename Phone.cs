@@ -21,32 +21,47 @@ namespace AssessmentIronSoftware
         {
             string result = string.Empty;
 
-            int sameCharStrict = 1;
+            int repeatCharStreak = 1;
             char previousChar = '!';
             
             foreach (var currentChar in input)
             {
+                /*
+                Count the consecutive repeated character Streak by using 
+                repeatCharStreak: int while looping through each input character.
+                */
                 if (currentChar == previousChar)
                 {
-                    sameCharStrict++;
+                    repeatCharStreak++;
                 }
                 else
                 {
+                    /*
+                    When the character is not a repeat to the previous character,
+                    Handle the repeated Streak count of the previous digit and 
+                    choose the appropriete letter from the oldPhoneButtonMap: Dictionary.
+                    */
                     if (previousChar >= '0' && previousChar <= '9')
                     {
                         var buttonString = oldPhoneButtonMap[previousChar];
-                        var resultLetterIndex = (sameCharStrict-1) % buttonString.Length;
+                        var resultLetterIndex = (repeatCharStreak-1) % buttonString.Length;
                         result += buttonString[resultLetterIndex];
                     }
+                    /*
+                    When the previous character is * (backspace). 
+                    Remove characters from the end of result: string by repeated count of *.
+                    */
                     else if (previousChar == '*')
                     {
-                        var removeCount = Math.Min(result.Length, sameCharStrict);
+                        var removeCount = Math.Min(result.Length, repeatCharStreak);
                         result = result.Substring(0, result.Length - removeCount);
                     }
-
-                    sameCharStrict = 1;
+                    
+                    // reset the repeatCharStreak: int to 1 for the currentChar
+                    repeatCharStreak = 1;
                 }
 
+                // break the loop considering `#` as the last character in the input.
                 if (currentChar == '#') break;
                 
                 previousChar = currentChar;

@@ -19,6 +19,7 @@
                 Phone.OldPhonePad("***2225#"),                  // Edge Case 3: CJ (Do not remove next letters when extra backspace pressed before)
                 Phone.OldPhonePad("**#"),                       // Edge Case 4: (Empty output when only backspace but no other key pressed)
                 Phone.OldPhonePad("#")                          // Edge Case 5: (Empty output when nothing pressed.)
+                Phone.OldPhonePad("22#33445")                   // Edge Case 6: B (Skip handling characters after # symbol.)
             };
             
             
