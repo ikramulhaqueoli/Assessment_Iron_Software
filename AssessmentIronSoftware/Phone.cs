@@ -2,8 +2,8 @@ namespace AssessmentIronSoftware
 {
     public static class Phone
     {
-        private static Dictionary<char, string> oldPhoneButtonMap = 
-            new Dictionary<char, string>()
+        private static readonly Dictionary<char, string> oldPhoneButtonMap = 
+            new()
             {
                 {'0', " "},
                 {'1', "&'("},
@@ -27,8 +27,8 @@ namespace AssessmentIronSoftware
             foreach (var currentChar in input)
             {
                 /*
-                Count the consecutive repeated character Streak by using 
-                repeatCharStreak: int while looping through each input character.
+                    Count the consecutive repeated character Streak by using 
+                    repeatCharStreak: int while looping through each input character.
                 */
                 if (currentChar == previousChar)
                 {
@@ -37,9 +37,9 @@ namespace AssessmentIronSoftware
                 else
                 {
                     /*
-                    When the character is not a repeat to the previous character,
-                    Handle the repeated Streak count of the previous digit and 
-                    choose the appropriete letter from the oldPhoneButtonMap: Dictionary.
+                        When the character is not a repeat to the previous character,
+                        Handle the repeated Streak count of the previous digit and 
+                        choose the appropriete letter from the oldPhoneButtonMap: Dictionary.
                     */
                     if (previousChar >= '0' && previousChar <= '9')
                     {
@@ -48,8 +48,8 @@ namespace AssessmentIronSoftware
                         result += buttonString[resultLetterIndex];
                     }
                     /*
-                    When the previous character is * (backspace). 
-                    Remove characters from the end of result: string by repeated count of *.
+                        When the previous character is * (backspace). 
+                        Remove characters from the end of result: string by repeated count of *.
                     */
                     else if (previousChar == '*')
                     {
